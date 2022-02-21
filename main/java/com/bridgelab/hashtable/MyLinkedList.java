@@ -34,6 +34,23 @@ public class MyLinkedList<K> {
 		}
 	}
 	
+	public INode<K> pop() {
+		INode<K> tempNode = this.head;
+		this.head = head.getNext();
+		return  tempNode;
+	}
+	
+	public void searchAndDelete(INode<K> deleteNode) {
+		MyLinkedList<K> n = new MyLinkedList<K>();
+		INode<K> tempNode = head;
+		while(tempNode.getNext() != null) {
+			if(tempNode.getKey() == deleteNode.getKey()) {
+				n.pop();
+			}
+			tempNode = tempNode.getNext();
+		}
+	}
+	
 	public void printMyNodes() {
 		System.out.println("My Nodes: " + head);
 	}
@@ -42,4 +59,5 @@ public class MyLinkedList<K> {
 	public String toString() {
 		return "MyLinkedListNodes{" + head + '}';
 	}
+
 }
